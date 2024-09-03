@@ -1,0 +1,99 @@
+html {
+    height: 100%;
+    margin: 0;
+}
+
+
+body {
+    background-image: url(img/Diseño\ onboard\ final\ \(1\).png);
+    background-repeat: no-repeat;
+    background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
+    background-position: center; 
+}
+
+
+.contenedor_info {
+    background: rgba(128, 128, 128, 0.438);
+    align-items: center;
+    width: 300px;
+    height: 400px;
+    position: absolute;
+    border-radius: 20px;
+    top: 160px;
+    left: 300px;
+   
+}
+
+.contenedor_info h2 {
+    font-size: 20px;
+    font-weight: 200;
+    color: white;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;  
+}
+
+.contenedor_info img {
+    position: relative;
+    top: 10px;
+    left: 60px;
+    width: 170px;
+    height: 110px;
+    margin: 5px;
+} 
+
+.contenedor_boton {
+    border-radius: 15px;
+    background: rgba(128, 128, 128, 0.438);
+    width: 200px;
+    height: 210px;
+    position: absolute;
+    top: 160px;
+    left: 800px;
+    transition: 0.3s ease-in-out;
+}
+
+.contenedor_boton:hover {
+    transform: translateY(-10px);
+}
+
+.contenedor_boton img {
+    position: relative;
+    top: 8px;
+    left: 30px;
+    width: 130px;
+    height: 150px;
+    margin: 5px;
+}
+
+.contenedor_boton h2{
+    font-size: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 200;
+    color: white;
+    position: absolute;
+    top: 130px;
+    left: 50px;
+}
+
+
+.contenedor_img img {
+    position: absolute;
+    left: 90%;
+    width: 110px;
+    height: 100px;
+}
+
+
+.contenedor_info button {
+    justify-content: center;
+    position: relative;
+    left: 20%;
+    width: 160px;
+    height: 40px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    background: rgba(128, 128, 128, 0.699);
+    color: white;
+}

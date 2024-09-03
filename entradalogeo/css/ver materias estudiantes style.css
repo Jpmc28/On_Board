@@ -1,0 +1,82 @@
+html {
+    height: 100%;
+    margin: 0;
+}
+
+
+body {
+    background-image: url(img/Diseño\ onboard\ final\ \(1\).png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; 
+}
+
+
+
+.navbar {
+    width: 40%;
+    height: 50px;
+    border-radius: 20px;
+    padding: 10px 0;
+    background: linear-gradient(to right, #58687e, #cebfe6);
+    position: fixed;
+    top: 80%;
+    left: 30%;
+}
+
+.navbar img{
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    top: 5px;
+    
+}
+
+
+.contenedor_lista {
+    width: 310px;
+    height: 370px;
+    background: rgba(128, 128, 128, 0.514);
+    position: relative;
+    top: 60px;
+    left: 800px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    color: white;
+    text-align: center;
+}
+
+.contenedor_lista h2 {
+    text-align: center;
+    font-size: 30px;
+    color: white;
+}
+
+
+.contenedor_logo img{
+    position: absolute;
+    top: 140px;
+    left: 235px;
+    width: 120px;
+    height: 110px;
+
+}
+.contenedor_seleccion {
+    position: absolute;
+    top: 300px;
+    left: 200px;
+    background: rgba(128, 128, 128, 0.623);
+    width: 180px;
+    height: 50px;
+    border-radius: 15px;    
+}
+.contenedor_seleccion summary {
+    text-align: center;
+    font-size: 30px;
+    color: white;
+}
+.contenedor_seleccion p {
+    color: white;
+}

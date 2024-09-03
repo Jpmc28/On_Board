@@ -1,0 +1,155 @@
+@keyframes rellenar{
+    to{
+        stroke-dasharray: var(--porcentaje) 100;
+    }
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
+    background-image: url(img/Diseño\ onboard\ final\ \(1\).png);
+    justify-content: center;
+}
+.contenedor_img img {
+    margin-top: 3.1%;
+    position: absolute;
+    left: 90%;
+    width: 110px;
+    height: 100px;
+}
+.contenedor{
+    margin-top: 0%;
+    margin-right: 30%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.contenedor_carrera {
+    background: #4d4d4d;
+    width: 40%;
+    height: 10%;
+    border-radius: 50px;
+    position: relative;
+    top: 90px;
+    left: 35%;
+    text-align: center;
+}
+.contenedor_carrera h1{
+    padding: 7%;
+    color: white;
+    font-size: xx-large;
+}
+.porcentaje{
+    margin-top: 25%;
+    margin-right: 2%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.porcentaje span{
+    position: absolute;
+    top:  0%;
+    left: 5%;
+    bottom: 10%;
+    right: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: 20px/1em verdana;
+    color: white;
+    font-size: 50px;
+}
+.svg {
+    width: 90%;
+    height: auto;
+  }
+  
+circle{
+    stroke: #6CE5E8;
+    fill: none;
+    stroke-width: 10;
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+circle:nth-child(2){
+    stroke-dasharray: 0 100;
+    stroke: #41B8D5;
+    animation: rellenar 3s linear forwards;
+}
+.navbar {
+    width: 40%;
+    height: 50px;
+    border-radius: 25px;
+    padding: 0.7% 0;
+    background: linear-gradient(to right, #8c52ff, #5ce1e6);
+    position: fixed;
+    top: 80%;
+    left: 29%;
+}
+.navbar img{
+    padding-top: 1%;
+    padding-bottom: 2%;
+    margin-left: 9%;
+    width: 10%;
+    position: absolute;
+    top: 5px;
+}
+.nav_bar {
+    list-style-type: none;
+     display: flex;
+     gap: 200px;
+     align-items: center;
+}
+
+/*Responsive*/
+@media(max-width: 768px) {
+    .logo{
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 25%;
+    }
+    .infocarrera{
+        margin-right: 0%;
+        height: 50%;
+        width: 150%;
+        background: #545454;
+        border-radius: 25px;
+        border: none;
+        cursor: pointer;
+    }
+    .contenedor{
+        margin-left: 30%;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        gap: 20px;
+    }
+    .svg{
+        margin-bottom: -10%;
+        margin-left: 70%;
+        width: 190%;
+    }
+    .porcentaje span{
+        position: absolute;
+        top:  0%;
+        left: 80%;
+        bottom: 0%;
+        right: 0%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font: 20px/1em verdana;
+        color: white;
+        font-size: 30px;
+    }
+    .contenedor3{
+        margin-left: 0%;
+        width: 150%;
+    }
+    
+}

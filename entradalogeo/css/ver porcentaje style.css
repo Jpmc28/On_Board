@@ -1,0 +1,86 @@
+html {
+    height: 100%;
+    margin: 0;
+}
+
+
+body {
+    background-image: url(img/Diseño\ onboard\ final\ \(1\).png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; 
+}
+.contenedor_img img {
+    position: absolute;
+    left: 90%;
+    width: 110px;
+    height: 100px;
+}
+.contenedor_carrera {
+    background: rgba(70, 70, 70, 0.507);
+    width: 290px;
+    height: 50px;
+    border-radius: 30px;
+    position: relative;
+    top: 100px;
+    left: 500px;
+    text-align: center;
+}
+.navbar {
+    width: 40%;
+    height: 50px;
+    border-radius: 20px;
+    padding: 10px 0;
+    background: linear-gradient(to right, #58687e, #cebfe6);
+    position: fixed;
+    top: 80%;
+    left: 30%;
+}
+.navbar img{
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    top: 5px;
+}
+.nav_bar {
+    list-style-type: none;
+    display: flex;
+    gap: 200px;
+    align-items: center;
+}
+.porcentaje{
+    margin-right: 40%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.porcentaje span{
+    position: absolute;
+    top:  0%;
+    left: 5%;
+    bottom: 10%;
+    right: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: 20px/1em verdana;
+    color: white;
+    font-size: 50px;
+}
+.svg {
+    width: 100%;
+    height: auto;
+  }
+circle{
+    stroke: #6CE5E8;
+    fill: none;
+    stroke-width: 10;
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+circle:nth-child(2){
+    stroke-dasharray: 0 100;
+    stroke: #41B8D5;
+    animation: rellenar 3s linear forwards;
+}
