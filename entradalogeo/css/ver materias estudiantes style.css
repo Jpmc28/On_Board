@@ -10,29 +10,30 @@ body {
     background-size: cover;
     background-position: center; 
 }
-
-
-
 .navbar {
     width: 40%;
     height: 50px;
-    border-radius: 20px;
-    padding: 10px 0;
-    background: linear-gradient(to right, #58687e, #cebfe6);
+    border-radius: 25px;
+    padding: 0.7% 0;
+    background: linear-gradient(to right, #8c52ff, #5ce1e6);
     position: fixed;
     top: 80%;
-    left: 30%;
+    left: 29%;
 }
-
 .navbar img{
-    height: 60px;
-    width: 60px;
+    padding-top: 1%;
+    padding-bottom: 2%;
+    margin-left: 2%;
+    width: 10%;
     position: absolute;
     top: 5px;
-    
 }
-
-
+.nav_bar {
+    list-style-type: none;
+     display: flex;
+     gap: 200px;
+     align-items: center;
+}
 .contenedor_lista {
     width: 310px;
     height: 370px;

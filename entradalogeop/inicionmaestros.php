@@ -20,7 +20,7 @@ if (!isset($_SESSION['id_Profe'])) {
 <body>
     
    <div class="contenedor_img">
-    <img src="img/logo.png" alt="logo on board">
+    <img src="img/logo_on_board_2-removebg-preview.png" alt="logo on board">
    </div>
 
 

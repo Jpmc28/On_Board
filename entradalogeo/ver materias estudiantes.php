@@ -21,8 +21,6 @@ if (!isset($_SESSION['id_Estudiante'])) {
     <div class="contenedor_logo">
         <img src="img/logo_on_board_2-removebg-preview.png" alt="">
         </div>
-
-
         <div class="contenedor_seleccion">
             <details>
                 <summary>Clase</summary>
@@ -33,28 +31,25 @@ if (!isset($_SESSION['id_Estudiante'])) {
                 <p>c++</p>
             </details>
         </div>
-
-
     <div class="contenedor_lista">
         <h2>Ingles</h2>
         <h3>Verbo To Be: aprobado</h3>
         <h3>Do-Does: aprobado</h3>
         <h3>Pronombres: no aprobado</h3>
-        <h3>listen: no calificado</h3>
-       
-      
- </div>
-
-
-
-
-
+        <h3>listen: no calificado</h3>     
+    </div>
     <nav class="navbar">
-        <ul class="nav_bar">
-            <li>
-           <a href="inicion maestros.html"><img src="img/logo.png" alt=""></a>
-            </li>
-        </ul>
-    </nav>
+            <ul class="nav_bar">
+                <li>
+                    <a href=""><img src="img/boton calendario.png" class="imagen"></a>
+                </li>
+                <li>
+                    <a href="home.php"><img src="img/boton retornar al principio de la pagina.png" class="imagen"></a>
+                </li>
+                <li>
+                    <a href="ver materias estudiantes.php"><img src="img/boton visualizar materias.png" class="imagen"></a>
+                </li>
+            </ul>
+        </nav>
 </body>
 </html>
