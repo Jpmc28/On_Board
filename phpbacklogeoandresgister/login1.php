@@ -132,13 +132,116 @@ $stmt->bind_param("ss", $email, $psw);
 
     if ($result3->num_rows > 0) {
         $user = $result3->fetch_assoc();
-        var_dump($user); // Muestra los datos que se obtienen
-        $_SESSION['id_profe'] = $user['idEstudiante'];
+
+            // Asignar el valor del semestre a la sesión
+            $_SESSION["NumeroDeSemestre"] = ($user["SemestreId"]);
+            // Verificar el valor de SemestreId y modificarlo si es necesario
+        if ($user["SemestreId"] == "101" || $user["SemestreId"] == "201" || $user["SemestreId"] == "301" || $user["SemestreId"] == "401" || $user["SemestreId"] == "501" || $user["SemestreId"] == "601") {
+            $_SESSION["NumeroDeSemestre"] = 10;
+            }
+            elseif ($user["SemestreId"] == "102" || $user["SemestreId"] == "202" || $user["SemestreId"] == "302" || $user["SemestreId"] == "402" || $user["SemestreId"] == "502" || $user["SemestreId"] == "602"){
+            $_SESSION["NumeroDeSemestre"] = 20;
+            }
+            elseif ($user["SemestreId"] == "103" || $user["SemestreId"] == "203" || $user["SemestreId"] == "303" || $user["SemestreId"] == "403" || $user["SemestreId"] == "503" || $user["SemestreId"] == "603"){
+            $_SESSION["NumeroDeSemestre"] = 30;
+            }
+            elseif ($user["SemestreId"] == "104" || $user["SemestreId"] == "204" || $user["SemestreId"] == "304" || $user["SemestreId"] == "404" || $user["SemestreId"] == "504" || $user["SemestreId"] == "604"){
+            $_SESSION["NumeroDeSemestre"] = 40;
+            }
+            elseif ($user["SemestreId"] == "105" || $user["SemestreId"] == "205" || $user["SemestreId"] == "305" || $user["SemestreId"] == "405" || $user["SemestreId"] == "505" || $user["SemestreId"] == "605"){
+            $_SESSION["NumeroDeSemestre"] = 50;
+            }
+            elseif ($user["SemestreId"] == "106" || $user["SemestreId"] == "206" || $user["SemestreId"] == "306" || $user["SemestreId"] == "406" || $user["SemestreId"] == "506" || $user["SemestreId"] == "606"){
+            $_SESSION["NumeroDeSemestre"] = 60;
+            }
+            elseif ($user["SemestreId"] == "107" || $user["SemestreId"] == "207" || $user["SemestreId"] == "307" || $user["SemestreId"] == "407" || $user["SemestreId"] == "507" || $user["SemestreId"] == "607"){
+            $_SESSION["NumeroDeSemestre"] = 70;
+            }
+            elseif ($user["SemestreId"] == "108" || $user["SemestreId"] == "208" || $user["SemestreId"] == "308" || $user["SemestreId"] == "408" || $user["SemestreId"] == "508" || $user["SemestreId"] == "608"){
+            $_SESSION["NumeroDeSemestre"] = 80;
+            }
+            elseif ($user["SemestreId"] == "109" || $user["SemestreId"] == "209" || $user["SemestreId"] == "309" || $user["SemestreId"] == "409" || $user["SemestreId"] == "509" || $user["SemestreId"] == "609"){
+            $_SESSION["NumeroDeSemestre"] = 90;
+            }
+            else {
+            $_SESSION["NumeroDeSemestre"] = 100;
+            }
+        $_SESSION['id_Estudiante'] = $user['idEstudiante'];
         $_SESSION['nombre'] = $user['Nombres'];
         $_SESSION['CorreoInstitucional'] = $user['CorreoInstitucional'];
         $_SESSION['Telefono'] = $user['Telefono'];
         $_SESSION['Direccion'] = $user['Direccion'];
-        header("Location: ../entradalogeo/home.php");
+        header("Location: ../entradalogeo/home.php"); 
+        exit();
+    } else {
+        echo "No se encontró el usuario.";
+        header("Location: ../index.php");
+        echo '<h1 class="bad">ERROR EN LA AUTENTIFICACION</h1>';
+    }
+
+
+//Profesores uninpahu
+
+$sql4 = "SELECT * FROM ProfesUninPahu WHERE CorreoInstitucional = ? AND Contraseña = ? ";
+$stmt = $conn->prepare($sql4);
+$stmt->bind_param("ss", $email, $psw);
+    $stmt->execute();
+    $result4 = $stmt->get_result();
+
+    if ($result4->num_rows > 0) {
+        $user = $result4->fetch_assoc();
+        $_SESSION['id_Profe'] = $user['idProfe'];
+        $_SESSION['nombre'] = $user['Nombres'];
+        $_SESSION['CorreoInstitucional'] = $user['CorreoInstitucional'];
+        $_SESSION['Telefono'] = $user['Telefono'];
+        $_SESSION['Direccion'] = $user['Direccion'];
+        header("Location: ../entradalogeop/inicionmaestros.php"); 
+        exit();
+    } else {
+        echo "No se encontró el usuario.";
+        header("Location: ../index.php");
+        echo '<h1 class="bad">ERROR EN LA AUTENTIFICACION</h1>';
+    }
+
+//Profesores Sena
+
+$sql5 = "SELECT * FROM ProfesSena WHERE CorreoInstitucional = ? AND Contraseña = ? ";
+$stmt = $conn->prepare($sql5);
+$stmt->bind_param("ss", $email, $psw);
+    $stmt->execute();
+    $result5 = $stmt->get_result();
+
+    if ($result5->num_rows > 0) {
+        $user = $result5->fetch_assoc();
+        $_SESSION['id_Profe'] = $user['idProfe'];
+        $_SESSION['nombre'] = $user['Nombres'];
+        $_SESSION['CorreoInstitucional'] = $user['CorreoInstitucional'];
+        $_SESSION['Telefono'] = $user['Telefono'];
+        $_SESSION['Direccion'] = $user['Direccion'];
+        header("Location: ../entradalogeop/inicionmaestros.php"); 
+        exit();
+    } else {
+        echo "No se encontró el usuario.";
+        header("Location: ../index.php");
+        echo '<h1 class="bad">ERROR EN LA AUTENTIFICACION</h1>';
+    }
+
+//Profes Konrad lorenz
+
+$sql6 = "SELECT * FROM ProfesKonradLorenz WHERE CorreoInstitucional = ? AND Contraseña = ? ";
+$stmt = $conn->prepare($sql6);
+$stmt->bind_param("ss", $email, $psw);
+    $stmt->execute();
+    $result6 = $stmt->get_result();
+
+    if ($result6->num_rows > 0) {
+        $user = $result6->fetch_assoc();
+        $_SESSION['id_Profe'] = $user['idProfe'];
+        $_SESSION['nombre'] = $user['Nombres'];
+        $_SESSION['CorreoInstitucional'] = $user['CorreoInstitucional'];
+        $_SESSION['Telefono'] = $user['Telefono'];
+        $_SESSION['Direccion'] = $user['Direccion'];
+        header("Location: ../entradalogeop/inicionmaestros.php"); 
         exit();
     } else {
         echo "No se encontró el usuario.";

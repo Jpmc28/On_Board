@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+// Verificar si el usuario está autenticado
+if (!isset($_SESSION['id_Profe'])) {
+    header("Location: index.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,15 +24,15 @@
    </div>
 
 
-     <div class="contenedor_info">
+   <div class="contenedor_info">
         <img src="img/user.png">
-        <h2>Nombre: eduardo foglia martinez</h2>
-        <h2>correo: example@gmail.com</h2>
-        <h2>Dirrecion: cra 48h #87-20</h2>
-        <h2>telefono: 3657421091</h2>
-        <a href="">
-            <button>Editar Datos</button>
-        </a>
+        <h2>Nombre: <?php echo htmlspecialchars($_SESSION['nombre']); ?></h2>
+        <h2>Correo: <?php echo htmlspecialchars($_SESSION['CorreoInstitucional']); ?></h2>
+        <h2>Dirrecion: <?php echo htmlspecialchars($_SESSION['Direccion']); ?></h2>
+        <h2>telefono: <?php echo htmlspecialchars($_SESSION['Telefono']); ?></h2>
+      <a href="">
+        <button>Editar Datos</button>
+    </a>
      </div>
 
 
