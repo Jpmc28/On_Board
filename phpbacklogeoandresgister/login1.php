@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: ../entradalogeo/home.php"); 
         exit();
     } else {
-        include("index.php");
+        header("Location: ../index.php");
         echo '<h1 class="bad">ERROR EN LA AUTENTIFICACION</h1>';
     }
 
@@ -119,30 +119,32 @@ if ($user["SemestreId"] == "101" || $user["SemestreId"] == "201" || $user["Semes
         header("Location: ../entradalogeo/home.php"); 
         exit();
     } else {
-        include("index.php");
+        header("Location: ../index.php");
         echo '<h1 class="bad">ERROR EN LA AUTENTIFICACION</h1>';
     }
     
 //UninPahu
-$sql3 = "SELECT * FROM ProfesKonradLorenz WHERE CorreoInstitucion = ? AND Contraseña = ? ";
+$sql3 = "SELECT * FROM EstudiantesUninPahu WHERE CorreoInstitucional = ? AND Contraseña = ? ";
 $stmt = $conn->prepare($sql3);
 $stmt->bind_param("ss", $email, $psw);
     $stmt->execute();
     $result3 = $stmt->get_result();
 
     if ($result3->num_rows > 0) {
-    $user = $result3->fetch_assoc();
-    $_SESSION['id_profe'] = $user['idProfe'];
-    $_SESSION['nombre'] = $user['Nombres'];
-    $_SESSION['CorreoInstitucional'] = $user['CorreoInstitucional'];
-    $_SESSION['Telefono'] = $user['Telefono'];
-    $_SESSION['Direccion'] = $user['Direccion'];
-    header("Location: ../entradalogeo/home.php"); 
-    exit();
-} else {
-    include("index.php");
-    echo '<h1 class="bad">ERROR EN LA AUTENTIFICACION</h1>';
-}
+        $user = $result3->fetch_assoc();
+        var_dump($user); // Muestra los datos que se obtienen
+        $_SESSION['id_profe'] = $user['idEstudiante'];
+        $_SESSION['nombre'] = $user['Nombres'];
+        $_SESSION['CorreoInstitucional'] = $user['CorreoInstitucional'];
+        $_SESSION['Telefono'] = $user['Telefono'];
+        $_SESSION['Direccion'] = $user['Direccion'];
+        header("Location: ../entradalogeo/home.php");
+        exit();
+    } else {
+        echo "No se encontró el usuario.";
+        header("Location: ../index.php");
+        echo '<h1 class="bad">ERROR EN LA AUTENTIFICACION</h1>';
+    }
 
     $stmt->close();
 }
