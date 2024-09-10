@@ -24,7 +24,7 @@ if (!isset($_SESSION['id_Estudiante'])) {
     </div>
     <section class="contenedor">
     <div class="contenedor_carrera">
-         <h1>Ing. Software</h1>
+         <h1><?php echo htmlspecialchars($_SESSION['NombreCarrera']); ?></h1>
     </div>
     <div class="porcentaje" style="--porcentaje: <?php echo $_SESSION["NumeroDeSemestre"];?>">
         <svg class="svg" viewBox="0 0 100 100" preserveAspectRatio="xMinYMin meet">

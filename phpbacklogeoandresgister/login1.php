@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $psw = $_POST['password'];
 
-    $sql = "SELECT idEstudiante, Nombres, Telefono, Direccion, CorreoInstitucional FROM EstudiantesSena WHERE CorreoInstitucional = ? AND Contraseña = ?";
+    $sql = "SELECT *, NombreCarreras FROM EstudiantesSena JOIN CarrerasSena ON CarreraId = idCarreras WHERE CorreoInstitucional = ? AND Contraseña = ?;";
     $stmt = $conn->prepare($sql);
     if (!$stmt) {
         die("Error en la preparación de la consulta: " . $conn->error);
@@ -55,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['CorreoInstitucional'] = $user['CorreoInstitucional'];
         $_SESSION['Telefono'] = $user['Telefono'];
         $_SESSION['Direccion'] = $user['Direccion'];
+        $_SESSION['NombreCarrera'] = $user['NombreCarreras'];
         header("Location: ../entradalogeo/home.php"); 
         exit();
     } else {
@@ -63,8 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 //KONRAD LORENZ
-
-$sql2 = "SELECT idEstudiante, Nombres, Telefono, Direccion, CorreoInstitucional, SemestreId FROM EstudiantesKonradLorenz WHERE CorreoInstitucional = ? AND Contraseña = ?";
+$sql2 = "SELECT *, NombreCarreras FROM EstudiantesKonradLorenz JOIN CarrerasKonradLorenz ON CarreraId = idCarreras WHERE CorreoInstitucional = ? AND Contraseña = ?;";
 $stmt = $conn->prepare($sql2);
 
     if (!$stmt) {
@@ -116,6 +116,7 @@ if ($user["SemestreId"] == "101" || $user["SemestreId"] == "201" || $user["Semes
         $_SESSION['CorreoInstitucional'] = $user['CorreoInstitucional'];
         $_SESSION['Telefono'] = $user['Telefono'];
         $_SESSION['Direccion'] = $user['Direccion'];
+        $_SESSION['NombreCarrera'] = $user['NombreCarreras'];
         header("Location: ../entradalogeo/home.php"); 
         exit();
     } else {
@@ -124,7 +125,7 @@ if ($user["SemestreId"] == "101" || $user["SemestreId"] == "201" || $user["Semes
     }
     
 //UninPahu
-$sql3 = "SELECT * FROM EstudiantesUninPahu WHERE CorreoInstitucional = ? AND Contraseña = ? ";
+$sql3 = "SELECT *, NombreCarreras FROM EstudiantesUninPahu JOIN CarrerasUninPahu ON CarreraId = idCarreras WHERE CorreoInstitucional = ? AND Contraseña = ?;";
 $stmt = $conn->prepare($sql3);
 $stmt->bind_param("ss", $email, $psw);
     $stmt->execute();
@@ -171,6 +172,7 @@ $stmt->bind_param("ss", $email, $psw);
         $_SESSION['CorreoInstitucional'] = $user['CorreoInstitucional'];
         $_SESSION['Telefono'] = $user['Telefono'];
         $_SESSION['Direccion'] = $user['Direccion'];
+        $_SESSION['NombreCarrera'] = $user['NombreCarreras'];
         header("Location: ../entradalogeo/home.php"); 
         exit();
     } else {
