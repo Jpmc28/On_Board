@@ -30,7 +30,7 @@ if (!isset($_SESSION['id_Estudiante'])) {
         <h2>Correo: <?php echo htmlspecialchars($_SESSION['CorreoInstitucional']); ?></h2>
         <h2>Dirrecion: <?php echo htmlspecialchars($_SESSION['Direccion']); ?></h2>
         <h2>telefono: <?php echo htmlspecialchars($_SESSION['Telefono']); ?></h2>
-      <a href="">
+      <a href="editar datos.php">
         <button>Editar Datos</button>
     </a>
      </div>
