@@ -28,8 +28,8 @@ if (!isset($_SESSION['id_Profe'])) {
         <img src="img/user.png">
         <h2>Nombre: <?php echo htmlspecialchars($_SESSION['nombre']); ?></h2>
         <h2>Correo: <?php echo htmlspecialchars($_SESSION['CorreoInstitucional']); ?></h2>
-        <h2>Dirrecion: <?php echo htmlspecialchars($_SESSION['Direccion']); ?></h2>
-        <h2>telefono: <?php echo htmlspecialchars($_SESSION['Telefono']); ?></h2>
+        <h2>Direccion: <?php echo htmlspecialchars($_SESSION['Direccion']); ?></h2>
+        <h2>Telefono: <?php echo htmlspecialchars($_SESSION['Telefono']); ?></h2>
       <a href="">
         <button>Editar Datos</button>
     </a>

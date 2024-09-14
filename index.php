@@ -33,7 +33,7 @@
                     </form>
                 </div>
                 <div class="card-back">
-                    <form action="phpbacklogeoandregister/registrarse.php" method="POST">
+                    <form action="phpbacklogeoandresgister/registrarse.php" method="POST">
                         <section class="Registrarse">
                             <img src="img/Captura_de_Pantalla_2024-08-04_a_la_s__4.26.12_p._m.-removebg-preview.png" alt="" id="register">
                             <div class="alado">

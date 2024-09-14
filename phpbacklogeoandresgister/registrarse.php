@@ -105,5 +105,101 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $stmt->close();
 }
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
+
+    $sql = "SELECT Contraseña FROM ProfesUninPahu WHERE CorreoInstitucional = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        if (!empty($row['Contraseña'])) {
+            echo "El correo electrónico ya tiene una contraseña asignada.";
+        } else {
+            // Asignar la nueva contraseña
+            $sql = "UPDATE ProfesUninPahu SET Contraseña = ? WHERE CorreoInstitucional = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("ss", $password, $email);
+            if ($stmt->execute()) {
+                echo "Contraseña asignada exitosamente.";
+        
+            } else {
+                echo "Error al asignar la contraseña.";
+            }
+        }
+    } else {
+        echo "El correo electrónico no existe en la base de datos.";
+    }
+    $stmt->close();
+}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
+
+    $sql = "SELECT Contraseña FROM ProfesKonradLorenz WHERE CorreoInstitucional = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        if (!empty($row['Contraseña'])) {
+            echo "El correo electrónico ya tiene una contraseña asignada.";
+        } else {
+            // Asignar la nueva contraseña
+            $sql = "UPDATE ProfesKonradLorenz SET Contraseña = ? WHERE CorreoInstitucional = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("ss", $password, $email);
+            if ($stmt->execute()) {
+                echo "Contraseña asignada exitosamente.";
+        
+            } else {
+                echo "Error al asignar la contraseña.";
+            }
+        }
+    } else {
+        echo "El correo electrónico no existe en la base de datos.";
+    }
+    $stmt->close();
+}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
+
+    $sql = "SELECT Contraseña FROM ProfesSena WHERE CorreoInstitucional = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        if (!empty($row['Contraseña'])) {
+            echo "El correo electrónico ya tiene una contraseña asignada.";
+        } else {
+            // Asignar la nueva contraseña
+            $sql = "UPDATE ProfesSena SET Contraseña = ? WHERE CorreoInstitucional = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("ss", $password, $email);
+            if ($stmt->execute()) {
+                echo "Contraseña asignada exitosamente.";
+        
+            } else {
+                echo "Error al asignar la contraseña.";
+            }
+        }
+    } else {
+        echo "El correo electrónico no existe en la base de datos.";
+    }
+    $stmt->close();
+}
+
 $conn->close();
-?>
