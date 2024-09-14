@@ -1,0 +1,63 @@
+body {
+ background-color: rgb(74, 69, 69);
+}
+.buscador {
+    position: absolute;
+    top: 50px;
+    left: 135px;
+}
+.buscador input {
+    width: 400px;
+    height: 25px;
+    background-color: black;
+    outline: none;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+.buscador button {
+    height: 25px;
+}
+.contenedor-lista-mes{
+    background-color: black;
+    height: 30px;
+    width: 50px;
+    position: absolute;
+    left: 83px;
+    top: 50px;
+}
+.contenedor-lista-mes p {
+    color: red;
+}
+.contenedor-lista-mes summary {
+    color: red;
+}
+.calendar {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    height: 600px;
+    border: 10px solid #282828;
+    
+    margin-top: 80px;
+}
+.calendar th, .calendar td {
+    border: 3px solid #ffa4a417;
+    padding: 10px;
+    text-align: center;
+}
+.calendar th {
+    background-color: #000000;
+}
+.calendar .header {
+    font-weight: bold;
+    background-color: #000000;
+    color: red;
+}
+.calendar .day {
+    background-color: #000000;
+    color: white;
+}
+
+.calendar .empty {
+    background-color: #000000;
+}

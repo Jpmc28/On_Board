@@ -36,7 +36,7 @@ if (!isset($_SESSION['id_Profe'])) {
      </div>
 
 
-<a href="ver lista estudiante.html">
+<a href="ver lista estudiante.php">
 
      <div class="contenedor_boton">
         <img src="img/listas.png">

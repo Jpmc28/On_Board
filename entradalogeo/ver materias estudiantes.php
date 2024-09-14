@@ -24,24 +24,20 @@ if (!isset($_SESSION['id_Estudiante'])) {
         <div class="contenedor_seleccion">
             <details>
                 <summary>Clase</summary>
-    
-                <p>Ingles</p>
-                <p>python</p>
-                <p>html</p>
-                <p>c++</p>
+                <p><?php echo "<li>" . $_SESSION["NombreClase"] . "</li>";?></p>
             </details>
         </div>
     <div class="contenedor_lista">
-        <h2>Ingles</h2>
-        <h3>Verbo To Be: aprobado</h3>
-        <h3>Do-Does: aprobado</h3>
-        <h3>Pronombres: no aprobado</h3>
-        <h3>listen: no calificado</h3>     
+        <h2></h2>
+        <h3> <?php echo $_SESSION[""];?></h3>
+        <h3> <?php echo $_SESSION[""];?></h3>
+        <h3> <?php echo $_SESSION[""];?></h3>
+        <h3> <?php echo $_SESSION[""];?></h3>     
     </div>
     <nav class="navbar">
             <ul class="nav_bar">
                 <li>
-                    <a href=""><img src="img/boton calendario.png" class="imagen"></a>
+                    <a href="calendario.php"><img src="img/boton calendario.png" class="imagen"></a>
                 </li>
                 <li>
                     <a href="home.php"><img src="img/boton retornar al principio de la pagina.png" class="imagen"></a>

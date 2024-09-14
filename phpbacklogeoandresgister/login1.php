@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $psw = $_POST['password'];
 
-    $sql = "SELECT *, NombreCarreras FROM EstudiantesSena JOIN CarrerasSena ON CarreraId = idCarreras WHERE CorreoInstitucional = ? AND Contraseña = ?;";
+    $sql = "SELECT *, NombreCarreras FROM EstudiantesSena JOIN CarrerasSena ON CarreraId = idCarreras JOIN ClasesSena ON ClasesId = idClase WHERE CorreoInstitucional = ? AND Contraseña = ?;";
     $stmt = $conn->prepare($sql);
     if (!$stmt) {
         die("Error en la preparación de la consulta: " . $conn->error);
@@ -56,6 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['Telefono'] = $user['Telefono'];
         $_SESSION['Direccion'] = $user['Direccion'];
         $_SESSION['NombreCarrera'] = $user['NombreCarreras'];
+        $_SESSION['NombreClase'] = $user['NombreClase'];
         header("Location: ../entradalogeo/home.php"); 
         exit();
     } else {
@@ -64,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 //KONRAD LORENZ
-$sql2 = "SELECT *, NombreCarreras FROM EstudiantesKonradLorenz JOIN CarrerasKonradLorenz ON CarreraId = idCarreras WHERE CorreoInstitucional = ? AND Contraseña = ?;";
+$sql2 = "SELECT *, NombreCarreras, NombreClase FROM EstudiantesKonradLorenz JOIN CarrerasKonradLorenz ON CarreraId = idCarreras JOIN ClasesKonradLorenz ON ClasesId = idClase WHERE CorreoInstitucional = ? AND Contraseña = ?;";
 $stmt = $conn->prepare($sql2);
 
     if (!$stmt) {
@@ -79,12 +80,12 @@ $stmt = $conn->prepare($sql2);
     $user = $result2->fetch_assoc();
 
     // Asignar el valor del semestre a la sesión
-        $_SESSION["NumeroDeSemestre"] = ($user["SemestreId"]);
+        $_SESSION["NumeroDeSemestre"] = $user["SemestreId"];
             // Verificar el valor de SemestreId y modificarlo si es necesario
-if ($user["SemestreId"] == "101" || $user["SemestreId"] == "201" || $user["SemestreId"] == "301" || $user["SemestreId"] == "401" || $user["SemestreId"] == "501" || $user["SemestreId"] == "601") {
+        if ($user["SemestreId"] == 101 || $user["SemestreId"] == "201" || $user["SemestreId"] == "301" || $user["SemestreId"] == "401" || $user["SemestreId"] == "501" || $user["SemestreId"] == "601") {
             $_SESSION["NumeroDeSemestre"] = 10;
             }
-            elseif ($user["SemestreId"] == "102" || $user["SemestreId"] == "202" || $user["SemestreId"] == "302" || $user["SemestreId"] == "402" || $user["SemestreId"] == "502" || $user["SemestreId"] == "602"){
+            elseif ($user["SemestreId"] == "102" || $user["SemestreId"] == "202" || $user["SemestreId"] == "302" || $user["SemestreId"] == "402" || $user["SemestreId"] == "502" || $user["SemestreId"] == "602") {
             $_SESSION["NumeroDeSemestre"] = 20;
             }
             elseif ($user["SemestreId"] == "103" || $user["SemestreId"] == "203" || $user["SemestreId"] == "303" || $user["SemestreId"] == "403" || $user["SemestreId"] == "503" || $user["SemestreId"] == "603"){
@@ -117,6 +118,7 @@ if ($user["SemestreId"] == "101" || $user["SemestreId"] == "201" || $user["Semes
         $_SESSION['Telefono'] = $user['Telefono'];
         $_SESSION['Direccion'] = $user['Direccion'];
         $_SESSION['NombreCarrera'] = $user['NombreCarreras'];
+        $_SESSION['NombreClase'] = $user['NombreClase'];
         header("Location: ../entradalogeo/home.php"); 
         exit();
     } else {
@@ -125,7 +127,7 @@ if ($user["SemestreId"] == "101" || $user["SemestreId"] == "201" || $user["Semes
     }
     
 //UninPahu
-$sql3 = "SELECT *, NombreCarreras FROM EstudiantesUninPahu JOIN CarrerasUninPahu ON CarreraId = idCarreras WHERE CorreoInstitucional = ? AND Contraseña = ?;";
+$sql3 = "SELECT *, NombreCarreras FROM EstudiantesUninPahu JOIN CarrerasUninPahu ON CarreraId = idCarreras JOIN ClasesUninPahu ON ClasesId = idClase WHERE CorreoInstitucional = ? AND Contraseña = ?;";
 $stmt = $conn->prepare($sql3);
 $stmt->bind_param("ss", $email, $psw);
     $stmt->execute();
@@ -173,6 +175,7 @@ $stmt->bind_param("ss", $email, $psw);
         $_SESSION['Telefono'] = $user['Telefono'];
         $_SESSION['Direccion'] = $user['Direccion'];
         $_SESSION['NombreCarrera'] = $user['NombreCarreras'];
+        $_SESSION['NombreClase'] = $user['NombreClase'];
         header("Location: ../entradalogeo/home.php"); 
         exit();
     } else {
@@ -184,7 +187,7 @@ $stmt->bind_param("ss", $email, $psw);
 
 //Profesores uninpahu
 
-$sql4 = "SELECT * FROM ProfesUninPahu WHERE CorreoInstitucional = ? AND Contraseña = ? ";
+$sql4 = "SELECT *, NombreClase FROM ProfesUninPahu JOIN ClasesUninPahu ON ClaseId = idClase WHERE CorreoInstitucional = ? AND Contraseña = ? ";
 $stmt = $conn->prepare($sql4);
 $stmt->bind_param("ss", $email, $psw);
     $stmt->execute();
@@ -197,6 +200,8 @@ $stmt->bind_param("ss", $email, $psw);
         $_SESSION['CorreoInstitucional'] = $user['CorreoInstitucional'];
         $_SESSION['Telefono'] = $user['Telefono'];
         $_SESSION['Direccion'] = $user['Direccion'];
+        $_SESSION['NumeroClase'] = $user['ClaseId'];
+        $_SESSION['NombreClase'] = $user['NombreClase'];
         header("Location: ../entradalogeop/inicionmaestros.php"); 
         exit();
     } else {
@@ -207,7 +212,7 @@ $stmt->bind_param("ss", $email, $psw);
 
 //Profesores Sena
 
-$sql5 = "SELECT * FROM ProfesSena WHERE CorreoInstitucional = ? AND Contraseña = ? ";
+$sql5 = "SELECT * FROM ProfesSena JOIN ClasesSena ON ClaseId = idClase WHERE CorreoInstitucional = ? AND Contraseña = ? ";
 $stmt = $conn->prepare($sql5);
 $stmt->bind_param("ss", $email, $psw);
     $stmt->execute();
@@ -220,6 +225,8 @@ $stmt->bind_param("ss", $email, $psw);
         $_SESSION['CorreoInstitucional'] = $user['CorreoInstitucional'];
         $_SESSION['Telefono'] = $user['Telefono'];
         $_SESSION['Direccion'] = $user['Direccion'];
+        $_SESSION['NumeroClase'] = $user['ClaseId'];
+        $_SESSION['NombreClase'] = $user['NombreClase'];
         header("Location: ../entradalogeop/inicionmaestros.php"); 
         exit();
     } else {
@@ -230,7 +237,7 @@ $stmt->bind_param("ss", $email, $psw);
 
 //Profes Konrad lorenz
 
-$sql6 = "SELECT * FROM ProfesKonradLorenz WHERE CorreoInstitucional = ? AND Contraseña = ? ";
+$sql6 = "SELECT * FROM ProfesKonradLorenz JOIN ClasesKonradLorenz ON ClaseId = idClase WHERE CorreoInstitucional = ? AND Contraseña = ? ";
 $stmt = $conn->prepare($sql6);
 $stmt->bind_param("ss", $email, $psw);
     $stmt->execute();
@@ -243,6 +250,8 @@ $stmt->bind_param("ss", $email, $psw);
         $_SESSION['CorreoInstitucional'] = $user['CorreoInstitucional'];
         $_SESSION['Telefono'] = $user['Telefono'];
         $_SESSION['Direccion'] = $user['Direccion'];
+        $_SESSION['NumeroClase'] = $user['ClaseId'];
+        $_SESSION['NombreClase'] = $user['NombreClase'];
         header("Location: ../entradalogeop/inicionmaestros.php"); 
         exit();
     } else {

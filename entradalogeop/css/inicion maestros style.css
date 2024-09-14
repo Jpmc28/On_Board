@@ -15,7 +15,7 @@ body {
 .contenedor_info {
     background: rgba(128, 128, 128, 0.438);
     align-items: center;
-    width: 300px;
+    width: auto;
     height: 400px;
     position: absolute;
     border-radius: 20px;

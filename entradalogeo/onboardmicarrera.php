@@ -36,7 +36,7 @@ if (!isset($_SESSION['id_Estudiante'])) {
     <nav class="navbar">
         <ul class="nav_bar">
             <li>
-                <a href=""><img src="img/boton calendario.png" class="imagen"></a>
+                <a href="calendario.php"><img src="img/boton calendario.png" class="imagen"></a>
             </li>
             <li>
                 <a href="home.php"><img src="img/boton retornar al principio de la pagina.png" class="imagen"></a>

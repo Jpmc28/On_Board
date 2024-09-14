@@ -9,6 +9,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center; 
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .navbar {
     width: 40%;
@@ -41,12 +42,12 @@ body {
     position: relative;
     top: 60px;
     left: 800px;
-    border-radius: 10px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     margin-top: 20px;
     color: white;
-    text-align: center;
+ 
 }
 
 .contenedor_lista h2 {
@@ -54,7 +55,12 @@ body {
     font-size: 30px;
     color: white;
 }
-
+.contenedor_lista h3 {
+   flex-direction: column;
+    justify-content: start;
+   margin-left: 20px;
+    color: white;
+}
 
 .contenedor_logo img{
     position: absolute;
@@ -64,23 +70,23 @@ body {
     height: 110px;
 
 }
-.contenedor_seleccion {
+.contenedor_boton {
     position: absolute;
     top: 300px;
-    left: 200px;
+    left: 225px;
     background: rgba(128, 128, 128, 0.623);
-    width: 180px;
+    width: 150px;
     height: 50px;
     border-radius: 15px;    
 }
-.contenedor_seleccion summary {
-    text-align: center;
-    font-size: 30px;
+
+.contenedor_boton button {
     color: white;
-}
-.contenedor_seleccion p {
-    color: white;
-}
-li{
-    color: white;
+    background: none;
+    outline: none;
+    border: none;
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+
 }
