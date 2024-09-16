@@ -16,6 +16,7 @@ if (!isset($_SESSION['id_Estudiante'])) {
     <link rel="stylesheet" href="css/ver materias estudiantes style.css">
     <link rel="website icon" type="png"
     href="img/logo_on_board_2-removebg-preview.png">
+    <script src="javascript/java.js"></script>
 </head>
 <body>
     <div class="contenedor_logo">
@@ -24,15 +25,16 @@ if (!isset($_SESSION['id_Estudiante'])) {
         <div class="contenedor_seleccion">
             <details>
                 <summary>Clase</summary>
-                <p><?php echo "<li>" . $_SESSION["NombreClase"] . "</li>";?></p>
+                <p id="cambio estilo"><?php echo $_SESSION["NombreClase"] ;?></p>
+                <p id="cambio estulo2"><?php echo $_SESSION["NombreClase2"] ;?></p>
             </details>
         </div>
     <div class="contenedor_lista">
         <h2></h2>
-        <h3> <?php echo $_SESSION[""];?></h3>
-        <h3> <?php echo $_SESSION[""];?></h3>
-        <h3> <?php echo $_SESSION[""];?></h3>
-        <h3> <?php echo $_SESSION[""];?></h3>     
+        <h3> </h3>
+        <h3> </h3>
+        <h3> </h3>
+        <h3> </h3>     
     </div>
     <nav class="navbar">
             <ul class="nav_bar">

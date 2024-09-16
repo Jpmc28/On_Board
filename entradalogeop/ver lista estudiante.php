@@ -66,7 +66,7 @@ if (!isset($_SESSION['id_Profe'])) {
             <a href="calendario.php"><img src="img/boton calendario.png" class="imagen"></a>
             </li>
             <li>
-                <a href="home.php"><img src="img/boton retornar al principio de la pagina.png" class="imagen"></a>
+                <a href="inicionmaestros.php"><img src="img/boton retornar al principio de la pagina.png" class="imagen"></a>
             </li>
             <li>
                 <a href="ver materias estudiantes.php"><img src="img/boton visualizar materias.png" class="imagen"></a>

@@ -31,7 +31,7 @@ if (!isset($_SESSION['id_Estudiante'])) {
             <circle r="45" cx="50" cy="50" pathlength="100" />
             <circle r="45" cx="50" cy="50" pathlength="100" />
         </svg>
-        <span><?php echo htmlspecialchars($_SESSION["NumeroDeSemestre"]); ?>%</span>
+        <span><?php echo $_SESSION["NumeroDeSemestre"]; ?>%</span>
     </div>
     <nav class="navbar">
         <ul class="nav_bar">

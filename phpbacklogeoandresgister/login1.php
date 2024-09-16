@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $psw = $_POST['password'];
 
-    $sql = "SELECT *, NombreCarreras FROM EstudiantesSena JOIN CarrerasSena ON CarreraId = idCarreras JOIN ClasesSena ON ClasesId = idClase WHERE CorreoInstitucional = ? AND Contraseña = ?;";
+    $sql = "SELECT * FROM EstudiantesSena JOIN CarrerasSena ON CarreraId = idCarreras JOIN ClasesSena ON ClasesId = idClase WHERE CorreoInstitucional = ? AND Contraseña = ?;";
     $stmt = $conn->prepare($sql);
     if (!$stmt) {
         die("Error en la preparación de la consulta: " . $conn->error);
@@ -38,13 +38,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($user["SemestreId"] == "101" || $user["SemestreId"] == "201" || $user["SemestreId"] == "301" || $user["SemestreId"] == "401" || $user["SemestreId"] == "501" || $user["SemestreId"] == "601") {
                 $_SESSION["NumeroDeSemestre"] = 20;
                 }
-                elseif ($user["SemestreId"] == "102" || $user["SemestreId"] == "202" || $user["SemestreId"] == "302" || $user["SemestreId"] == "402" || $user["SemestreId"] == "502" || $user["SemestreId"] == "602"){
+                else if ($user["SemestreId"] == "102" || $user["SemestreId"] == "202" || $user["SemestreId"] == "302" || $user["SemestreId"] == "402" || $user["SemestreId"] == "502" || $user["SemestreId"] == "602"){
                 $_SESSION["NumeroDeSemestre"] = 40;
                 }
-                elseif ($user["SemestreId"] == "103" || $user["SemestreId"] == "203" || $user["SemestreId"] == "303" || $user["SemestreId"] == "403" || $user["SemestreId"] == "503" || $user["SemestreId"] == "603"){
+                else if ($user["SemestreId"] == "103" || $user["SemestreId"] == "203" || $user["SemestreId"] == "303" || $user["SemestreId"] == "403" || $user["SemestreId"] == "503" || $user["SemestreId"] == "603"){
                 $_SESSION["NumeroDeSemestre"] = 60;
                 }
-                elseif ($user["SemestreId"] == "104" || $user["SemestreId"] == "204" || $user["SemestreId"] == "304" || $user["SemestreId"] == "404" || $user["SemestreId"] == "504" || $user["SemestreId"] == "604"){
+                else if ($user["SemestreId"] == "104" || $user["SemestreId"] == "204" || $user["SemestreId"] == "304" || $user["SemestreId"] == "404" || $user["SemestreId"] == "504" || $user["SemestreId"] == "604"){
                 $_SESSION["NumeroDeSemestre"] = 80;
                 }
                 else {
@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 //KONRAD LORENZ
-$sql2 = "SELECT *, NombreCarreras, NombreClase FROM EstudiantesKonradLorenz JOIN CarrerasKonradLorenz ON CarreraId = idCarreras JOIN ClasesKonradLorenz ON ClasesId = idClase WHERE CorreoInstitucional = ? AND Contraseña = ?;";
+$sql2 = "SELECT *, ck1.NombreClase AS NombreClase1, ck2.NombreClase AS NombreClase2, NombreCarreras, ek.SemestreId FROM EstudiantesKonradLorenz ek JOIN CarrerasKonradLorenz ON ek.CarreraId = CarrerasKonradLorenz.idCarreras JOIN ClasesKonradLorenz ck1 ON ek.ClasesId = ck1.idClase LEFT JOIN ClasesKonradLorenz ck2 ON ek.ClasesId2 = ck2.idClase  WHERE ek.CorreoInstitucional = ? AND ek.Contraseña = ?;";
 $stmt = $conn->prepare($sql2);
 
     if (!$stmt) {
@@ -82,31 +82,31 @@ $stmt = $conn->prepare($sql2);
     // Asignar el valor del semestre a la sesión
         $_SESSION["NumeroDeSemestre"] = $user["SemestreId"];
             // Verificar el valor de SemestreId y modificarlo si es necesario
-        if ($user["SemestreId"] == 101 || $user["SemestreId"] == "201" || $user["SemestreId"] == "301" || $user["SemestreId"] == "401" || $user["SemestreId"] == "501" || $user["SemestreId"] == "601") {
+        if ($user["SemestreId"] == "101" || $user["SemestreId"] == "201" || $user["SemestreId"] == "301" || $user["SemestreId"] == "401" || $user["SemestreId"] == "501" || $user["SemestreId"] == "601") {
             $_SESSION["NumeroDeSemestre"] = 10;
             }
-            elseif ($user["SemestreId"] == "102" || $user["SemestreId"] == "202" || $user["SemestreId"] == "302" || $user["SemestreId"] == "402" || $user["SemestreId"] == "502" || $user["SemestreId"] == "602") {
+            else if ($user["SemestreId"] == "102" || $user["SemestreId"] == "202" || $user["SemestreId"] == "302" || $user["SemestreId"] == "402" || $user["SemestreId"] == "502" || $user["SemestreId"] == "602") {
             $_SESSION["NumeroDeSemestre"] = 20;
             }
-            elseif ($user["SemestreId"] == "103" || $user["SemestreId"] == "203" || $user["SemestreId"] == "303" || $user["SemestreId"] == "403" || $user["SemestreId"] == "503" || $user["SemestreId"] == "603"){
+            else if ($user["SemestreId"] == "103" || $user["SemestreId"] == "203" || $user["SemestreId"] == "303" || $user["SemestreId"] == "403" || $user["SemestreId"] == "503" || $user["SemestreId"] == "603"){
             $_SESSION["NumeroDeSemestre"] = 30;
             }
-            elseif ($user["SemestreId"] == "104" || $user["SemestreId"] == "204" || $user["SemestreId"] == "304" || $user["SemestreId"] == "404" || $user["SemestreId"] == "504" || $user["SemestreId"] == "604"){
+            else if ($user["SemestreId"] == "104" || $user["SemestreId"] == "204" || $user["SemestreId"] == "304" || $user["SemestreId"] == "404" || $user["SemestreId"] == "504" || $user["SemestreId"] == "604"){
             $_SESSION["NumeroDeSemestre"] = 40;
             }
-            elseif ($user["SemestreId"] == "105" || $user["SemestreId"] == "205" || $user["SemestreId"] == "305" || $user["SemestreId"] == "405" || $user["SemestreId"] == "505" || $user["SemestreId"] == "605"){
+            else if ($user["SemestreId"] == "105" || $user["SemestreId"] == "205" || $user["SemestreId"] == "305" || $user["SemestreId"] == "405" || $user["SemestreId"] == "505" || $user["SemestreId"] == "605"){
             $_SESSION["NumeroDeSemestre"] = 50;
             }
-            elseif ($user["SemestreId"] == "106" || $user["SemestreId"] == "206" || $user["SemestreId"] == "306" || $user["SemestreId"] == "406" || $user["SemestreId"] == "506" || $user["SemestreId"] == "606"){
+            else if ($user["SemestreId"] == "106" || $user["SemestreId"] == "206" || $user["SemestreId"] == "306" || $user["SemestreId"] == "406" || $user["SemestreId"] == "506" || $user["SemestreId"] == "606"){
             $_SESSION["NumeroDeSemestre"] = 60;
             }
-            elseif ($user["SemestreId"] == "107" || $user["SemestreId"] == "207" || $user["SemestreId"] == "307" || $user["SemestreId"] == "407" || $user["SemestreId"] == "507" || $user["SemestreId"] == "607"){
+            else if ($user["SemestreId"] == "107" || $user["SemestreId"] == "207" || $user["SemestreId"] == "307" || $user["SemestreId"] == "407" || $user["SemestreId"] == "507" || $user["SemestreId"] == "607"){
             $_SESSION["NumeroDeSemestre"] = 70;
             }
-            elseif ($user["SemestreId"] == "108" || $user["SemestreId"] == "208" || $user["SemestreId"] == "308" || $user["SemestreId"] == "408" || $user["SemestreId"] == "508" || $user["SemestreId"] == "608"){
+            else if ($user["SemestreId"] == "108" || $user["SemestreId"] == "208" || $user["SemestreId"] == "308" || $user["SemestreId"] == "408" || $user["SemestreId"] == "508" || $user["SemestreId"] == "608"){
             $_SESSION["NumeroDeSemestre"] = 80;
             }
-            elseif ($user["SemestreId"] == "109" || $user["SemestreId"] == "209" || $user["SemestreId"] == "309" || $user["SemestreId"] == "409" || $user["SemestreId"] == "509" || $user["SemestreId"] == "609"){
+            else if ($user["SemestreId"] == "109" || $user["SemestreId"] == "209" || $user["SemestreId"] == "309" || $user["SemestreId"] == "409" || $user["SemestreId"] == "509" || $user["SemestreId"] == "609"){
             $_SESSION["NumeroDeSemestre"] = 90;
             }
             else {
@@ -118,7 +118,9 @@ $stmt = $conn->prepare($sql2);
         $_SESSION['Telefono'] = $user['Telefono'];
         $_SESSION['Direccion'] = $user['Direccion'];
         $_SESSION['NombreCarrera'] = $user['NombreCarreras'];
-        $_SESSION['NombreClase'] = $user['NombreClase'];
+        $_SESSION['NombreClase'] = $user['NombreClase1'];
+        $_SESSION['NombreClase2'] = $user['NombreClase2'];
+
         header("Location: ../entradalogeo/home.php"); 
         exit();
     } else {
@@ -127,7 +129,7 @@ $stmt = $conn->prepare($sql2);
     }
     
 //UninPahu
-$sql3 = "SELECT *, NombreCarreras FROM EstudiantesUninPahu JOIN CarrerasUninPahu ON CarreraId = idCarreras JOIN ClasesUninPahu ON ClasesId = idClase WHERE CorreoInstitucional = ? AND Contraseña = ?;";
+$sql3 = "SELECT *, cu1.NombreClase AS NombreClase1, cu2.NombreClase AS NombreClase2, NombreCarreras, eu.SemestreId FROM EstudiantesUninPahu eu JOIN CarrerasUninPahu ON eu.CarreraId = CarrerasUninPahu.idCarreras JOIN ClasesUninPahu cu1 ON eu.ClasesId = cu1.idClase LEFT JOIN ClasesUninPahu cu2 ON eu.ClasesId2 = cu2.idClase  WHERE eu.CorreoInstitucional = ? AND eu.Contraseña = ?;";
 $stmt = $conn->prepare($sql3);
 $stmt->bind_param("ss", $email, $psw);
     $stmt->execute();
@@ -142,28 +144,28 @@ $stmt->bind_param("ss", $email, $psw);
         if ($user["SemestreId"] == "101" || $user["SemestreId"] == "201" || $user["SemestreId"] == "301" || $user["SemestreId"] == "401" || $user["SemestreId"] == "501" || $user["SemestreId"] == "601") {
             $_SESSION["NumeroDeSemestre"] = 10;
             }
-            elseif ($user["SemestreId"] == "102" || $user["SemestreId"] == "202" || $user["SemestreId"] == "302" || $user["SemestreId"] == "402" || $user["SemestreId"] == "502" || $user["SemestreId"] == "602"){
+            else if ($user["SemestreId"] == "102" || $user["SemestreId"] == "202" || $user["SemestreId"] == "302" || $user["SemestreId"] == "402" || $user["SemestreId"] == "502" || $user["SemestreId"] == "602"){
             $_SESSION["NumeroDeSemestre"] = 20;
             }
-            elseif ($user["SemestreId"] == "103" || $user["SemestreId"] == "203" || $user["SemestreId"] == "303" || $user["SemestreId"] == "403" || $user["SemestreId"] == "503" || $user["SemestreId"] == "603"){
+            else if ($user["SemestreId"] == "103" || $user["SemestreId"] == "203" || $user["SemestreId"] == "303" || $user["SemestreId"] == "403" || $user["SemestreId"] == "503" || $user["SemestreId"] == "603"){
             $_SESSION["NumeroDeSemestre"] = 30;
             }
-            elseif ($user["SemestreId"] == "104" || $user["SemestreId"] == "204" || $user["SemestreId"] == "304" || $user["SemestreId"] == "404" || $user["SemestreId"] == "504" || $user["SemestreId"] == "604"){
+            else if ($user["SemestreId"] == "104" || $user["SemestreId"] == "204" || $user["SemestreId"] == "304" || $user["SemestreId"] == "404" || $user["SemestreId"] == "504" || $user["SemestreId"] == "604"){
             $_SESSION["NumeroDeSemestre"] = 40;
             }
-            elseif ($user["SemestreId"] == "105" || $user["SemestreId"] == "205" || $user["SemestreId"] == "305" || $user["SemestreId"] == "405" || $user["SemestreId"] == "505" || $user["SemestreId"] == "605"){
+            else if ($user["SemestreId"] == "105" || $user["SemestreId"] == "205" || $user["SemestreId"] == "305" || $user["SemestreId"] == "405" || $user["SemestreId"] == "505" || $user["SemestreId"] == "605"){
             $_SESSION["NumeroDeSemestre"] = 50;
             }
-            elseif ($user["SemestreId"] == "106" || $user["SemestreId"] == "206" || $user["SemestreId"] == "306" || $user["SemestreId"] == "406" || $user["SemestreId"] == "506" || $user["SemestreId"] == "606"){
+            else if ($user["SemestreId"] == "106" || $user["SemestreId"] == "206" || $user["SemestreId"] == "306" || $user["SemestreId"] == "406" || $user["SemestreId"] == "506" || $user["SemestreId"] == "606"){
             $_SESSION["NumeroDeSemestre"] = 60;
             }
-            elseif ($user["SemestreId"] == "107" || $user["SemestreId"] == "207" || $user["SemestreId"] == "307" || $user["SemestreId"] == "407" || $user["SemestreId"] == "507" || $user["SemestreId"] == "607"){
+            else if ($user["SemestreId"] == "107" || $user["SemestreId"] == "207" || $user["SemestreId"] == "307" || $user["SemestreId"] == "407" || $user["SemestreId"] == "507" || $user["SemestreId"] == "607"){
             $_SESSION["NumeroDeSemestre"] = 70;
             }
-            elseif ($user["SemestreId"] == "108" || $user["SemestreId"] == "208" || $user["SemestreId"] == "308" || $user["SemestreId"] == "408" || $user["SemestreId"] == "508" || $user["SemestreId"] == "608"){
+            else if ($user["SemestreId"] == "108" || $user["SemestreId"] == "208" || $user["SemestreId"] == "308" || $user["SemestreId"] == "408" || $user["SemestreId"] == "508" || $user["SemestreId"] == "608"){
             $_SESSION["NumeroDeSemestre"] = 80;
             }
-            elseif ($user["SemestreId"] == "109" || $user["SemestreId"] == "209" || $user["SemestreId"] == "309" || $user["SemestreId"] == "409" || $user["SemestreId"] == "509" || $user["SemestreId"] == "609"){
+            else if ($user["SemestreId"] == "109" || $user["SemestreId"] == "209" || $user["SemestreId"] == "309" || $user["SemestreId"] == "409" || $user["SemestreId"] == "509" || $user["SemestreId"] == "609"){
             $_SESSION["NumeroDeSemestre"] = 90;
             }
             else {

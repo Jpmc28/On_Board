@@ -15,7 +15,7 @@ if (!isset($_SESSION['id_Profe'])) {
     <title>on board</title>
     <link rel="stylesheet" href="css/inicion maestros style.css">
     <link rel="website icon" type="png"
-    href="img/logo.png">
+    href="img/logo_on_board_2-removebg-preview.png">
 </head>
 <body>
     
