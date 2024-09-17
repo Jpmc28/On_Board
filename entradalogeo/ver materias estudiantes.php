@@ -26,7 +26,7 @@ if (!isset($_SESSION['id_Estudiante'])) {
             <details>
                 <summary>Clase</summary>
                 <p id="cambio estilo"><?php echo $_SESSION["NombreClase"] ;?></p>
-                <p id="cambio estulo2"><?php echo $_SESSION["NombreClase2"] ;?></p>
+                <p id="cambio estilo2"><?php echo $_SESSION["NombreClase2"] ;?></p>
             </details>
         </div>
     <div class="contenedor_lista">

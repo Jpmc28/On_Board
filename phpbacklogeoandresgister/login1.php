@@ -177,7 +177,8 @@ $stmt->bind_param("ss", $email, $psw);
         $_SESSION['Telefono'] = $user['Telefono'];
         $_SESSION['Direccion'] = $user['Direccion'];
         $_SESSION['NombreCarrera'] = $user['NombreCarreras'];
-        $_SESSION['NombreClase'] = $user['NombreClase'];
+        $_SESSION['NombreClase'] = $user['NombreClase1'];
+        $_SESSION['NombreClase2'] = $user['NombreClase2'];
         header("Location: ../entradalogeo/home.php"); 
         exit();
     } else {
