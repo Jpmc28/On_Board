@@ -18,15 +18,92 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $numero = $_POST['numero'];
     $direccion = $_POST['direccion'];
 
-    // Sentencia SQL corregida (separar los campos con comas)
     $sql = "UPDATE EstudiantesKonradLorenz SET Nombres = ?, Telefono = ?, Direccion = ? WHERE CorreoInstitucional = ?";
     $stmt = $conn->prepare($sql);
     
     if ($stmt) {
-        // Vinculando los parámetros
         $stmt->bind_param("ssss", $nombre, $numero, $direccion, $email);
         
-        // Ejecutando la consulta
+        if ($stmt->execute()) {
+            echo "Datos actualizados exitosamente.";
+        } else {
+            echo "Error al actualizar los datos: " . $stmt->error;
+        }
+        
+        $stmt->close();
+    } else {
+        echo "Error en la preparación de la consulta: " . $conn->error;
+    }
+    $sql = "UPDATE EstudiantesUninPahu SET Nombres = ?, Telefono = ?, Direccion = ? WHERE CorreoInstitucional = ?";
+    $stmt = $conn->prepare($sql);
+    
+    if ($stmt) {
+        $stmt->bind_param("ssss", $nombre, $numero, $direccion, $email);
+        
+        if ($stmt->execute()) {
+            echo "Datos actualizados exitosamente.";
+        } else {
+            echo "Error al actualizar los datos: " . $stmt->error;
+        }
+        
+        $stmt->close();
+    } else {
+        echo "Error en la preparación de la consulta: " . $conn->error;
+    }
+    $sql = "UPDATE EstudiantesSena SET Nombres = ?, Telefono = ?, Direccion = ? WHERE CorreoInstitucional = ?";
+    $stmt = $conn->prepare($sql);
+    
+    if ($stmt) {
+        $stmt->bind_param("ssss", $nombre, $numero, $direccion, $email);
+        
+        if ($stmt->execute()) {
+            echo "Datos actualizados exitosamente.";
+        } else {
+            echo "Error al actualizar los datos: " . $stmt->error;
+        }
+        
+        $stmt->close();
+    } else {
+        echo "Error en la preparación de la consulta: " . $conn->error;
+    }
+    $sql = "UPDATE ProfesSena SET Nombres = ?, Telefono = ?, Direccion = ? WHERE CorreoInstitucional = ?";
+    $stmt = $conn->prepare($sql);
+    
+    if ($stmt) {
+        $stmt->bind_param("ssss", $nombre, $numero, $direccion, $email);
+        
+        if ($stmt->execute()) {
+            echo "Datos actualizados exitosamente.";
+        } else {
+            echo "Error al actualizar los datos: " . $stmt->error;
+        }
+        
+        $stmt->close();
+    } else {
+        echo "Error en la preparación de la consulta: " . $conn->error;
+    }
+    $sql = "UPDATE ProfesUninPahu SET Nombres = ?, Telefono = ?, Direccion = ? WHERE CorreoInstitucional = ?";
+    $stmt = $conn->prepare($sql);
+    
+    if ($stmt) {
+        $stmt->bind_param("ssss", $nombre, $numero, $direccion, $email);
+        
+        if ($stmt->execute()) {
+            echo "Datos actualizados exitosamente.";
+        } else {
+            echo "Error al actualizar los datos: " . $stmt->error;
+        }
+        
+        $stmt->close();
+    } else {
+        echo "Error en la preparación de la consulta: " . $conn->error;
+    }
+    $sql = "UPDATE ProfesKonradLorenz SET Nombres = ?, Telefono = ?, Direccion = ? WHERE CorreoInstitucional = ?";
+    $stmt = $conn->prepare($sql);
+    
+    if ($stmt) {
+        $stmt->bind_param("ssss", $nombre, $numero, $direccion, $email);
+
         if ($stmt->execute()) {
             echo "Datos actualizados exitosamente.";
         } else {

@@ -23,15 +23,15 @@ if (!isset($_SESSION['id_Profe'])) {
 
     <h1><?php echo $_SESSION['nombre']?></h1>
 
-    <div>
-        <input id="nombre" type="text" placeholder="<?php echo $_SESSION['nombre']?>">
-        <input id="numero" type="text" placeholder="<?php echo $_SESSION['Telefono']?>">
-        <input id="direccion" type="text" placeholder="<?php echo $_SESSION['CorreoInstitucional']?>">
-        <input id="email" type="text" placeholder="<?php echo $_SESSION['Direccion']?>">
-    </div>
+    <form action="../phpbacklogeoandresgister/actualizardatos.php" method="POST">
+        <input id="nombre" name="nombre" type="text" value="<?php echo $_SESSION['nombre']?>" placeholder="Nombre" required>
+        <input id="numero" name="numero" type="text" value="<?php echo $_SESSION["Telefono"]?>" placeholder="Teléfono" required>
+        <input id="direccion" name="direccion" type="text" value="<?php echo $_SESSION['Direccion']?>" placeholder="Dirección" required>
+        <input type="email" name="email" id="email" value="<?php echo $_SESSION['CorreoInstitucional']?>" placeholder="Correo" required>
+        <button type="submit" id="g"><h3>Guardar</h3></button>
+    </form>
 
     <div>
-        <button id="g"><h3>guardar</h3></button>
         <a href="inicionmaestros.php">
         <button id="c"><h3>cancelar</h3></button>
         </a>
