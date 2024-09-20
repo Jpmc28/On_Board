@@ -23,11 +23,11 @@ if (!isset($_SESSION['id_Estudiante'])) {
         <img src="img/logo_on_board_2-removebg-preview.png" alt="">
         </div>
         <div class="contenedor_seleccion">
-            <details>
-                <summary>Clase</summary>
-                <p id="cambio estilo"><?php echo $_SESSION["NombreClase"] ;?></p>
-                <p id="cambio estilo2"><?php echo $_SESSION["NombreClase2"] ;?></p>
-            </details>
+        <details>
+            <summary>Clase</summary>
+                <p id="clase1" data-nombre="<?php echo $_SESSION["NombreClase"]; ?>"><?php echo $_SESSION["NombreClase"]; ?></p>
+                <p id="clase2" data-nombre="<?php echo $_SESSION["NombreClase2"]; ?>"><?php echo $_SESSION["NombreClase2"]; ?></p>
+        </details>
         </div>
     <div class="contenedor_lista">
         <h2></h2>
@@ -36,6 +36,7 @@ if (!isset($_SESSION['id_Estudiante'])) {
         <h3> </h3>
         <h3> </h3>     
     </div>
+    
     <nav class="navbar">
             <ul class="nav_bar">
                 <li>
